@@ -9,11 +9,11 @@
 
    <p><span th:text="${message}"></span></p>
     <hr/>
-    <div>
-        <ul class="list-group" style="border:1px solid;">
-          <li class="list-group-item">投稿名: <span>Tom</span></li>
-          <li class="list-group-item">投稿日: <span>Thu Apr 1 00:00:00 JST 2020</span></li>
-          <li class="list-group-item">投稿内容: <span>Hello World!!</span></li>
+    <div th:each="article : ${articles}">
+        <ul class="list-group" th:if="${article.isPublished}" style="border:1px solid;">
+          <li class="list-group-item">投稿名: <span th:text="${article.postName}"></span></li>
+          <li class="list-group-item">投稿日: <span th:text="${article.postDate}"></span></li>
+          <li class="list-group-item">投稿内容: <span th:text="${article.postText}"></span></li>
         </ul>
    </div> 
  </body>
